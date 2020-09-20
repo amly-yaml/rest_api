@@ -1,5 +1,8 @@
 # First API Design 
 
+This is a Flask Restful api application which used the http requests to GET, POST, PUT, and DELETE data. 
+
+## Installation
 ```
 pip install Flask 
 pip install Flask-RESTful
