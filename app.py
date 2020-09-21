@@ -5,7 +5,7 @@ from flask_jwt import JWT, jwt_required
 from security import authenticate, identify
 
 app = Flask(__name__)
-app.secret_key = 'shwekyi'
+app.secret_key = 'ghjinl'
 api = Api(app)
 jwt = JWT(app, authenticate, identify)
 
@@ -32,7 +32,7 @@ class Item(Resource):
         return post_item, 201
 
     def put(self, name):
-        data = Item.parser.parse_args()  # using parser format 
+        data = Item.parser.parse_args()  # using parser format
         put_item = next(filter(lambda x: x['name'] == name, items), None)
         if put_item is None:
             put_item = {'name': name, 'price': data['price']}
