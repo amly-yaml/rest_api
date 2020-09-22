@@ -23,9 +23,11 @@ class Item(Resource):
         return {'items': item}, 200 if item else 404
 
     def post(self, name):
-        if next(filter(lambda x: x['name'] == name, items), None):  # 400
-            return {'message': "Item '{}' is already existed".format(name)}
-
+        # if next(filter(lambda x: x['name'] == name, items), None):  # 400
+        # return {'message': "Item '{}' is already existed".format(name)}
+        for item in items:
+            if item['name'] == name:
+                return {'message': "Item '{}' already exist".format(name)}
         request_data = request.get_json()
         post_item = {'name': name, 'price': request_data['price']}
         items.append(post_item)
